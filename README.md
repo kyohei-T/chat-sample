@@ -64,8 +64,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: true|
-|image|string|null: true|
+|text|text||
+|image|string||
 |user_id|integrer|null: false, foreign_key: true|
 |group_id|integrer|null: false, foreign_key: true|
 
