@@ -46,12 +46,12 @@
     .form
       %form.form__box
         .form__box__input-box
-          %input{:placeholder => "type a message"}
+          %input{placeholder: "type a message"}
           %label.upload-label{for: "upload-icon"}
             %i.fa.fa-picture-o
             / = form.file_field :image, : "upload-icon"
-            %input{:type=>"file",:id=>"upload-icon",:style=>"display:none"}
+            %input{type: "file",id: "upload-icon",style: "display:none"}
 
         = link_to '#' do
-          %input.form__box__send-btn{:type => "submit", :value => "Send"}
+          %input.form__box__send-btn{type: "submit", value: "Send"}
 
