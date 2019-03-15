@@ -1,0 +1,57 @@
+.wrapper
+  .top-message
+    グループを作成しました
+  .left-contents
+    .user-name
+      .user-name__box
+        %p.user-name__box__name user-name
+        %ul.user-name__box__menu
+          %li
+            = link_to '#' do
+              %i.fa.fa-edit
+          %li
+            = link_to '#' do
+              %i.fa.fa-cog
+    .group-list
+      %p.group-list__group group name
+      %p.group-list__message first message
+      .group-list__blank
+      %p.group-list__group group name(2)
+      %p.group-list__message first message
+      .group-list__blank
+  .right-contents
+    .group-name
+      .group-name__box
+        %p.group-name__box__name group name
+        %ul.group-name__box__member
+          Member：
+          %li
+            member1
+          %li
+            member2
+      = link_to '#' do
+        .group-name__edit
+          edit
+    .message-list
+      .message
+        .message__user
+          %p.message__user--name User-Name
+          %p.message__user--timestamp 2019/03/13(MON) 12:12:12
+        %p.message__message message
+      .message
+        .message__user
+          %p.message__user--name User-Name
+          %p.message__user--timestamp 2019/03/13(MON) 12:12:12
+        %p.message__message message
+    .form
+      %form.form__box
+        .form__box__input-box
+          %input{placeholder: "type a message"}
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            / = form.file_field :image, : "upload-icon"
+            %input{type: "file",id: "upload-icon",style: "display:none"}
+
+        = link_to '#' do
+          %input.form__box__send-btn{type: "submit", value: "Send"}
+
