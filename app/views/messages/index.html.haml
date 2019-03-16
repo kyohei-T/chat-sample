@@ -1,16 +1,15 @@
 .wrapper
-  .top-message
-    グループを作成しました
   .left-contents
     .user-name
       .user-name__box
-        %p.user-name__box__name user-name
+        %p.user-name__box__name
+          =current_user.name
         %ul.user-name__box__menu
           %li
             = link_to '#' do
               %i.fa.fa-edit
           %li
-            = link_to '#' do
+            = link_to edit_user_path(current_user) do
               %i.fa.fa-cog
     .group-list
       %p.group-list__group group name
