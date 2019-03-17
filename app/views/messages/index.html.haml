@@ -1,23 +1,6 @@
 .wrapper
-  .left-contents
-    .user-name
-      .user-name__box
-        %p.user-name__box__name
-          =current_user.name
-        %ul.user-name__box__menu
-          %li
-            = link_to '#' do
-              %i.fa.fa-edit
-          %li
-            = link_to edit_user_path(current_user) do
-              %i.fa.fa-cog
-    .group-list
-      %p.group-list__group group name
-      %p.group-list__message first message
-      .group-list__blank
-      %p.group-list__group group name(2)
-      %p.group-list__message first message
-      .group-list__blank
+  =render "shared/side_bar"
+
   .right-contents
     .group-name
       .group-name__box
@@ -28,7 +11,7 @@
             member1
           %li
             member2
-      = link_to '#' do
+      = link_to edit_group_path(@group) do
         .group-name__edit
           edit
     .message-list

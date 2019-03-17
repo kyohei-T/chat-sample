@@ -40,13 +40,18 @@ $chat-form-height:90px;
   height: calc(100vh - #{$chat-header-height});
   box-sizing: border-box;
   color: $white;
-  font-weight:bold;
+  font-weight: bold;
+  a{
+    text-decoration: none;
+  }
   &__group{
     font-size: 15px;
+    color: $white;
   }
   &__message{
     font-size: 11px;
     margin-top: 5px;
+    color: $white;
   }
   &__blank{
     height: 40px;
