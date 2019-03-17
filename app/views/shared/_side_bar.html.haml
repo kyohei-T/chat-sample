@@ -1,0 +1,20 @@
+.left-contents
+  .user-name
+    .user-name__box
+      %p.user-name__box__name
+        =current_user.name
+      %ul.user-name__box__menu
+        %li
+          = link_to new_group_path do
+            %i.fa.fa-edit
+        %li
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+  .group-list
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        %p.group-list__group
+          = group.name
+        %p.group-list__message
+          メッセージはまだありません。
+        .group-list__blank

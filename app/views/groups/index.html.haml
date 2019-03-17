@@ -1,0 +1,39 @@
+.wrapper
+  = render "shared/side_bar"
+
+  / .right-contents
+  /   .group-name
+  /     .group-name__box
+  /       %p.group-name__box__name group name
+  /       %ul.group-name__box__member
+  /         Member：
+  /         %li
+  /           member1
+  /         %li
+  /           member2
+  /     = link_to '#' do
+  /       .group-name__edit
+  /         edit
+  /   .message-list
+  /     .message
+  /       .message__user
+  /         %p.message__user--name User-Name
+  /         %p.message__user--timestamp 2019/03/13(MON) 12:12:12
+  /       %p.message__message message
+  /     .message
+  /       .message__user
+  /         %p.message__user--name User-Name
+  /         %p.message__user--timestamp 2019/03/13(MON) 12:12:12
+  /       %p.message__message message
+  /   .form
+  /     %form.form__box
+  /       .form__box__input-box
+  /         %input{placeholder: "type a message"}
+  /         %label.upload-label{for: "upload-icon"}
+  /           %i.fa.fa-picture-o
+  /           / = form.file_field :image, : "upload-icon"
+  /           %input{type: "file",id: "upload-icon",style: "display:none"}
+
+  /       = link_to '#' do
+  /         %input.form__box__send-btn{type: "submit", value: "Send"}
+
