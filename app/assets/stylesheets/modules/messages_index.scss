@@ -136,20 +136,24 @@ $chat-form-height:90px;
     &__input-box{
       width: 100%;
       position:relative;
-      input{
-        height: 100%;
+      display: flex;
+      &--input{
         width: 100%;
         background-color: white;
         padding-left: 10px;
         line-height: 50px;
         padding-right: 40px;
         box-sizing: border-box;
+        position: relative;
       }
       i{
         position: absolute;
         right: 10px;
         top: 13px;
         font-size: 24px;
+      }
+      .hidden{
+        display:none;
       }
     }
     &__send-btn{
