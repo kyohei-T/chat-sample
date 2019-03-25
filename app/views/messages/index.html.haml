@@ -19,7 +19,7 @@
       = render @messages
 
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], id: "new_message" do |f|
         .form__box
           .form__box__input-box
             = f.text_field :text, placeholder: 'type a message', class: 'form__box__input-box--input'
