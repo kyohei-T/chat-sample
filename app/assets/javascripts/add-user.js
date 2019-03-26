@@ -1,13 +1,13 @@
 $(function(){
 
-  var members_id = new Array();
+  var member_ids = new Array();
   var search_list = $("#user-search-result")
   var group_member = $("#added-chat-group-user")
   var notMatch = -1;
 
   $(document).ready(function(){
     $(".chat-group-user input").each(function(){
-      members_id.push( $(this).attr("value") );
+      member_ids.push( $(this).attr("value") );
     });
   })
 
@@ -50,7 +50,7 @@ $(function(){
       $("#user-search-result").empty();
       if (users.length !== 0){
         users.forEach(function(user){
-          if($.inArray(user.id.toString(), members_id)== notMatch){
+          if($.inArray(user.id.toString(), member_ids)== notMatch){
             appendUser(user);
           }
         });
@@ -65,7 +65,7 @@ $(function(){
   $("#user-search-result").on("click",".chat-group-user__btn--add", function(){
     var id = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
-    members_id.push( id );
+    member_ids.push( id );
     $(this).parent(".chat-group-user").remove();
     removeUser(id,name);
   });
@@ -73,7 +73,7 @@ $(function(){
   $("#chat-group-users").on("click",".chat-group-user__btn--remove", function(e){
     e.preventDefault();
     id = $(this).children('input').attr("value");
-    members_id.splice($.inArray(id,members_id), 1);
+    member_ids.splice($.inArray(id,member_ids), 1);
     $(this).parent(".chat-group-user").remove();
   })
 });
