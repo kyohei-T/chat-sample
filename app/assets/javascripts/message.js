@@ -25,14 +25,14 @@ $(function(){
     $.ajax({
       type: 'GET',
       url: pathname,
-      data: { last_message_id: last_message_id},
+      data: { last_message_id: last_message_id },
       dataType: 'json'
     }).done(function(messages){
       if (messages.length !== 0){
         messages.forEach(function(message){
           var html = buildHTML(message);
           $('.message-list').append(html);
-          $('.message-list').animate({scrollTop: $('.message-list')[0].scrollHeight}, 'fast');
+          $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight }, 'fast');
         })
         var max = messages.slice(-1)[0].id;
         if (last_message_id < max){
