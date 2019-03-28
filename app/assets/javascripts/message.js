@@ -1,8 +1,9 @@
 $(function(){
+
   function buildHTML(message){
     var image = message.image.url ? message.image.url : '';
     var html =
-` <div class="message">
+` <div class="message" value="${message.id}">
     <div class="message__user">
       <p class="message__user--name">
         ${message.user_name}
@@ -17,6 +18,38 @@ $(function(){
     <img width="200" src="${image}">
   </div>`
     return html;
+  }
+
+  function insertHTML(){
+    var pathname =location.pathname;
+    $.ajax({
+      type: 'GET',
+      url: pathname,
+      data: { last_message_id: last_message_id },
+      dataType: 'json'
+    }).done(function(messages){
+      if (messages.length !== 0){
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+          $('.message-list').append(html);
+          $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight }, 'fast');
+        })
+        var max = messages.slice(-1)[0].id;
+        if (last_message_id < max){
+          last_message_id = max;
+        }
+      }
+    }).fail(function(){
+       alert('通信に失敗しました');
+    })
+  }
+
+  var last_message_id = 0;
+
+  if($('.message-list').length){
+    $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight }, 'fast');
+    setInterval(insertHTML, 5000);
+    last_message_id = $(".message:last").attr("value");
   }
 
   $('#new_message').on('submit', function(e){
