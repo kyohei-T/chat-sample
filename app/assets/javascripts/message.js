@@ -40,7 +40,7 @@ $(function(){
         }
       }
     }).fail(function(){
-      // alert('通信に失敗しました');
+       alert('通信に失敗しました');
     })
   }
 
